@@ -1,64 +1,110 @@
 {
   "name": "jmd",
   "displayName": "JMD — Josii's Markdown Extension",
-  "description": "Syntax highlighting and preview for .jmd fiction authoring files",
+  "description": "Syntax highlighting, preview panel, and annotation sidebar for .jmd files",
   "version": "0.1.0",
-  "publisher": "josii",
-  "engines": { "vscode": "^1.74.0" },
-  "categories": ["Programming Languages", "Formatters", "Snippets"],
-  "keywords": ["markdown", "fiction", "writing", "annotations", "jmd"],
-  "activationEvents": ["onLanguage:jmd", "onCommand:jmd.preview"],
+  "publisher": "Null-Phnix",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Null-Phnix/jmd"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Visualization",
+    "Notebooks"
+  ],
+  "keywords": [
+    "jmd",
+    "markdown",
+    "fiction",
+    "writing",
+    "annotations"
+  ],
+  "activationEvents": [
+    "onLanguage:jmd",
+    "onCommand:jmd.openPreview"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "languages": [{
-      "id": "jmd",
-      "aliases": ["JMD", "jmd"],
-      "extensions": [".jmd"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "jmd",
-      "scopeName": "source.jmd",
-      "path": "./syntaxes/jmd.tmLanguage.json"
-    }],
-    "commands": [{
-      "command": "jmd.preview",
-      "title": "JMD: Open Preview",
-      "icon": "$(open-preview)"
-    },{
-      "command": "jmd.unresolved",
-      "title": "JMD: List Unresolved Annotations"
-    }],
+    "languages": [
+      {
+        "id": "jmd",
+        "aliases": [
+          "JMD",
+          "Josii Markdown Extension"
+        ],
+        "extensions": [
+          ".jmd"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jmd",
+        "scopeName": "source.jmd",
+        "path": "./syntaxes/jmd.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "jmd.openPreview",
+        "title": "Open JMD Preview",
+        "icon": "$(preview)"
+      },
+      {
+        "command": "jmd.jumpToAnnotation",
+        "title": "Jump to Annotation"
+      }
+    ],
     "menus": {
-      "editor/title": [{
-        "command": "jmd.preview",
-        "group": "navigation",
-        "when": "editorLangId == jmd"
-      }]
+      "editor/title": [
+        {
+          "command": "jmd.openPreview",
+          "group": "navigation",
+          "when": "editorLangId == jmd"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "jmd.openPreview",
+          "when": "editorLangId == jmd"
+        }
+      ]
     },
-    "configuration": {
-      "title": "JMD",
-      "properties": {
-        "jmd.preview.autoRefresh": {
-          "type": "boolean",
-          "default": true,
-          "description": "Auto-refresh JMD preview on save"
-        },
-        "jmd.preview.theme": {
-          "type": "string",
-          "default": "dark",
-          "enum": ["dark", "light"],
-          "description": "Preview theme"
+    "views": {
+      "explorer": [
+        {
+          "id": "jmdAnnotations",
+          "name": "JMD Annotations",
+          "when": "editorLangId == jmd",
+          "icon": "$(comment-discussion)",
+          "contextualTitle": "Annotations"
+        }
+      ]
+    },
+    "icons": {
+      "jmd-file": {
+        "description": "JMD file icon",
+        "default": {
+          "fontPath": "./jmd-icon.woff",
+          "fontCharacter": "\\E001"
         }
       }
     }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./"
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
-    "typescript": "^5.0.0"
+    "@types/node": "^20.19.41",
+    "@types/vscode": "^1.118.0",
+    "typescript": "^5.9.3"
   }
 }
