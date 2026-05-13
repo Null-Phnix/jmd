@@ -1,0 +1,74 @@
+@meta
+title: "Odin's Bargain"
+author: "Josii"
+last_llm_pass: "2026-04-17T14:20:00Z"
+source: "Mythology_AI_Bifrost"
+
+@characters
+Odin: {archetype: "seeker", voice: "bitter", tags: [norse, aesir]}
+Loki: {archetype: "trickster", voice: "glib", tags: [norse, jotun]}
+Fenrir: {archetype: "doom", voice: "none", tags: [norse, beast]}
+
+@lore
+Yggdrasil: {ref: "bifrost://lore/yggdrasil", context: "World tree connecting nine realms"}
+Gungnir: {ref: "bifrost://lore/gungnir", context: "Spear that always finds its mark"}
+
+@body
+# Chapter 3: The Ash Tree
+
+The ash pierced the nine worlds. Its roots drank from [?lore1:lore-check:Josii:unresolved]the Well of Mimir[?].
+
+Odin stood beneath it. "I gave my eye for wisdom," he said. [?q1:question:Josii:unresolved]The line feels flat. Odin should be angrier.[?] His grip tightened on Gungnir.
+
+[?q2:praise:Josii:resolved]Love this image. The tree as both anchor and threat.[?]
+
+Loki appeared from nowhere, as he always did. "Bitter as ever, old man. Did you expect Mimir to hand you the truth on a silver branch?"
+
+Odin turned. The single remaining eye gleamed.
+
+[?q3:rewrite:Josii:unresolved]Fenrir introduction is too abrupt. Build tension first.[?] Fenrir padded from behind the roots.
+
+@annotations
+lore1:
+  type: lore-check
+  author: Josii
+  status: unresolved
+  created: "2026-04-17T13:00:00Z"
+  text: "Need to verify which realm the Well of Mimir sits in. The Hávamál says Jotunheim, but Eddas disagree. Ask Bifrost."
+
+q1:
+  type: question
+  author: Josii
+  status: unresolved
+  created: "2026-04-17T13:05:00Z"
+  text: "The line feels flat. Odin should be angrier. Consider: 'I bled on that altar. I gave the price before I knew its weight. And now you speak of it like pocket change.'"
+
+q2:
+  type: praise
+  author: Josii
+  status: resolved
+  created: "2026-04-17T13:06:00Z"
+  text: "Love this image. The tree as both anchor and threat."
+
+q3:
+  type: rewrite
+  author: Josii
+  status: unresolved
+  created: "2026-04-17T13:10:00Z"
+  text: "Fenrir introduction is too abrupt. Build tension first — sound of claws on bark, a shadow, then the reveal. The audience knows he's coming. Make them wait."
+
+@revision
+  pass: 7
+  timestamp: "2026-04-17T14:20:00Z"
+  changes:
+    - ann_id: q1
+      type: edit
+      original: "I gave my eye for wisdom, and you squander it on—"
+      replacement: "I gave my eye for wisdom. I bled on that altar. And now you piss on it like it never cost me anything—"
+      reason: "Made Odin more bitter per annotation q1"
+    - ann_id: q2
+      type: accepted
+      reason: "No changes needed"
+    - ann_id: lore1
+      type: deferred
+      reason: "Waiting on Bifrost verification"

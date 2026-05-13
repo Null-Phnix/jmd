@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jmd-format"
+version = "0.1.0"
+description = "JMD — Josii's Markdown Extension. Fiction authoring with annotations."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Josii", email = "contact@phnix.dev"}]
+keywords = ["markdown", "fiction", "writing", "annotations", "llm", "authoring"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Artistic Software",
+]
+requires-python = ">=3.10"
+dependencies = ["rich>=13.0"]
+
+[project.optional-dependencies]
+watch = ["watchdog>=3.0"]
+dev = ["pytest>=7.0", "watchdog>=3.0"]
+
+[project.scripts]
+jmd = "jmd.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Null-Phnix/jmd"
+Repository = "https://github.com/Null-Phnix/jmd"
+Issues = "https://github.com/Null-Phnix/jmd/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+jmd = ["*.html", "*.css", "*.js", "*.xml", "*.desktop"]

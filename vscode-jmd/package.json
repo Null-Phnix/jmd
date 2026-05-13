@@ -1,0 +1,64 @@
+{
+  "name": "jmd",
+  "displayName": "JMD — Josii's Markdown Extension",
+  "description": "Syntax highlighting and preview for .jmd fiction authoring files",
+  "version": "0.1.0",
+  "publisher": "josii",
+  "engines": { "vscode": "^1.74.0" },
+  "categories": ["Programming Languages", "Formatters", "Snippets"],
+  "keywords": ["markdown", "fiction", "writing", "annotations", "jmd"],
+  "activationEvents": ["onLanguage:jmd", "onCommand:jmd.preview"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [{
+      "id": "jmd",
+      "aliases": ["JMD", "jmd"],
+      "extensions": [".jmd"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "jmd",
+      "scopeName": "source.jmd",
+      "path": "./syntaxes/jmd.tmLanguage.json"
+    }],
+    "commands": [{
+      "command": "jmd.preview",
+      "title": "JMD: Open Preview",
+      "icon": "$(open-preview)"
+    },{
+      "command": "jmd.unresolved",
+      "title": "JMD: List Unresolved Annotations"
+    }],
+    "menus": {
+      "editor/title": [{
+        "command": "jmd.preview",
+        "group": "navigation",
+        "when": "editorLangId == jmd"
+      }]
+    },
+    "configuration": {
+      "title": "JMD",
+      "properties": {
+        "jmd.preview.autoRefresh": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto-refresh JMD preview on save"
+        },
+        "jmd.preview.theme": {
+          "type": "string",
+          "default": "dark",
+          "enum": ["dark", "light"],
+          "description": "Preview theme"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# VS Code extension
+vscode-jmd/node_modules/
+vscode-jmd/*.vsix
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# JMD build outputs (examples should stay)
+*.html
+!examples/*.jmd
