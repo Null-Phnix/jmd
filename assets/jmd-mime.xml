@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="text/x-jmd">
+    <comment>JMD — Josii's Markdown Extension</comment>
+    <comment xml:lang="en">JMD document</comment>
+    <glob pattern="*.jmd"/>
+    <sub-class-of type="text/plain"/>
+    <icon name="text-x-jmd"/>
+  </mime-type>
+</mime-info>

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# jmd-open-browser: render a .jmd file to HTML and open in default browser
+
+FILE="$1"
+if [ -z "$FILE" ]; then
+    echo "Usage: jmd-open-browser <file.jmd>"
+    exit 1
+fi
+
+TMPDIR="${TMPDIR:-/tmp}"
+OUT="$TMPDIR/jmd-preview-$(basename "$FILE" .jmd).html"
+
+jmd render "$FILE" -f html -o "$OUT"
+
+if command -v xdg-open >/dev/null 2>&1; then
+    xdg-open "$OUT"
+elif command -v open >/dev/null 2>&1; then
+    open "$OUT"
+else
+    echo "Cannot detect browser opener. File rendered to: $OUT"
+fi

@@ -1,0 +1,42 @@
+# macOS UTI Registration Snippet
+#
+# Add this to your Info.plist if you bundle JMD as a macOS app:
+#
+# <key>UTExportedTypeDeclarations</key>
+# <array>
+#   <dict>
+#     <key>UTTypeIdentifier</key>
+#     <string>com.phnix.jmd</string>
+#     <key>UTTypeDescription</key>
+#     <string>JMD Document</string>
+#     <key>UTTypeConformsTo</key>
+#     <array>
+#       <string>public.text</string>
+#       <string>public.plain-text</string>
+#     </array>
+#     <key>UTTypeTagSpecification</key>
+#     <dict>
+#       <key>public.filename-extension</key>
+#       <array>
+#         <string>jmd</string>
+#       </array>
+#     </dict>
+#   </dict>
+# </array>
+# <key>CFBundleDocumentTypes</key>
+# <array>
+#   <dict>
+#     <key>CFBundleTypeName</key>
+#     <string>JMD Document</string>
+#     <key>CFBundleTypeRole</key>
+#     <string>Viewer</string>
+#     <key>LSItemContentTypes</key>
+#     <array>
+#       <string>com.phnix.jmd</string>
+#     </array>
+#     <key>CFBundleTypeExtensions</key>
+#     <array>
+#       <string>jmd</string>
+#     </array>
+#   </dict>
+# </array>

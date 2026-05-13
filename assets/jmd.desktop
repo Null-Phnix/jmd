@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=JMD Viewer
+Comment=Open JMD files in browser
+Exec=jmd-open-browser %f
+Icon=text-x-jmd
+Type=Application
+MimeType=text/x-jmd;
+Categories=TextEditor;Development;
+Terminal=false
