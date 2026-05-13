@@ -61,38 +61,46 @@ Inline annotations (`[?q1:question:Josii:unresolved]...text...[?]`) make it impo
 
 | Feature | Status |
 |---|---|
-| Parser (Python) | ✅ Reads `@meta`, `@characters`, `@lore`, `@body`, `@annotations`, `@revision` |
+| Parser (Python) | ✅ Full section parsing + inline annotations |
 | HTML Renderer | ✅ Dark-themed HTML with sidebar, annotation cards |
+| JSON Export | ✅ Machine-readable structured output |
 | Plain Text Export | ✅ Strips annotations, outputs clean prose |
 | Markdown Export | ✅ Converts to standard Markdown |
-| CLI (`jmd`) | ✅ `render`, `validate`, `strip`, `unresolved`, `open`, `watch` |
+| CLI (`jmd`) | ✅ `render`, `validate`, `strip`, `unresolved`, `open`, `init`, `resolve`, `diff`, `watch` |
 | TUI Viewer (`jmd open`) | ✅ Rich-based terminal layout with 3 panels |
-| VS Code Extension | 🔄 Syntax highlighting ✅, preview panel 🔄 |
+| VS Code Extension | ✅ Syntax highlighting + preview panel + annotation sidebar |
 | Live-reload server | ✅ `jmd watch file.jmd --port 8080` |
-| OS file registration | 🚧 Linux MIME type + .desktop pending |
+| OS file registration | ✅ Linux MIME type + `.desktop` + macOS UTI snippet |
+| `jmd resolve` | ✅ Toggle annotation status in-file |
+| `jmd diff` | ✅ Annotation-aware diff between versions |
+| `jmd init` | ✅ Scaffold new `.jmd` from template |
 
 ---
 
 ## What I Still Want
 
 ### Immediate (next few weeks)
-- [ ] VS Code preview panel with live HTML rendering
-- [ ] VS Code annotation sidebar (tree view of unresolved)
-- [ ] Linux `.desktop` file + MIME type so double-clicking `.jmd` opens in browser
-- [ ] macOS UTI registration
-- [ ] Annotation status toggle from CLI (`jmd resolve q1 file.jmd`)
+- [x] VS Code preview panel with live HTML rendering
+- [x] VS Code annotation sidebar (tree view of unresolved)
+- [x] Linux `.desktop` file + MIME type so double-clicking `.jmd` opens in browser
+- [x] macOS UTI registration
+- [x] Annotation status toggle from CLI (`jmd resolve q1 file.jmd`)
+- [x] JSON export (`jmd render -f json`) for machine-readable output
+- [x] `jmd init` — scaffold new file from template
+- [x] `jmd diff` — annotation-aware diff between versions
+- [ ] LLM Agent integration: `jmd agent file.jmd` sends to LLM, gets back updated file with new annotations
 
 ### Medium-term (next few months)
-- [ ] **LLM Agent integration**: `jmd agent file.jmd` sends the file to an LLM (with annotations as context) and receives back the updated file with new annotations
 - [ ] **Annotation threading**: replies to annotations, not just single comments
-- [ ] **Diff mode**: `jmd diff v1.jmd v2.jmd` showing annotation-aware diffs
 - [ ] **Export to DOCX/EPUB/PDF**: not just HTML
 - [ ] **Plugin system**: custom annotation types with custom renderers
+- [ ] **Persistent annotation history**: keep full changelog of every annotation modification
 
 ### Long-term (dreaming)
 - [ ] A desktop app that feels like Obsidian but for fiction
 - [ ] Real-time collaborative editing with annotation awareness
 - [ ] LLM-native: the file format is designed for agents to read and write
+- [ ] **Semantic video-to-JMD**: feed a video comprehension report into a JMD file for narrative analysis
 
 ---
 
@@ -115,14 +123,26 @@ The file is the project. Not a folder of notes. Not a chat history. One file. Al
 # Install
 pip install jmd-format
 
+# Scaffold a new .jmd file
+jmd init -o my_story.jmd -t "My Story" --author Josii
+
 # Open a file in the terminal TUI
 jmd open my_story.jmd
 
 # Render to HTML
 jmd render my_story.jmd -o my_story.html
 
+# Render to JSON (machine-readable)
+jmd render my_story.jmd -f json -o my_story.json
+
 # Validate
 jmd validate my_story.jmd
+
+# Change annotation status
+jmd resolve my_story.jmd q1 resolved
+
+# Compare two versions
+jmd diff draft.jmd final.jmd
 
 # Watch for changes and auto-render
 jmd watch my_story.jmd --port 8080

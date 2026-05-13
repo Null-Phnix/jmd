@@ -29,7 +29,7 @@ dependencies = ["rich>=13.0"]
 
 [project.optional-dependencies]
 watch = ["watchdog>=3.0"]
-dev = ["pytest>=7.0", "watchdog>=3.0"]
+dev = ["pytest>=7.0", "watchdog>=3.0", "rich>=13.0"]
 
 [project.scripts]
 jmd = "jmd.cli:main"
