@@ -6,7 +6,7 @@
 
 ## Why I Built This
 
-I've been writing [Bifrost](https://github.com/Null-Phnix/bifrost) — a Norse mythology project — for over a year. The workflow is simple in theory:
+I've been writing [Bifrost](https://phnix.dev/projects/bifrost.html) — a Norse mythology project — for over a year. The workflow is simple in theory:
 
 1. Write a scene
 2. Send it to Claude / GPT / whatever
